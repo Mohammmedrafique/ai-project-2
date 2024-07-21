@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Home, LogIn, LogOut, Menu, X, Star} from "lucide-react";
+import { Home, LogIn, LogOut, Menu, X, Star } from "lucide-react";
 import { toast } from "react-toastify";
 
 export const Navbar = () => {
@@ -31,7 +31,7 @@ export const Navbar = () => {
                 {/* <Star className="h-8 w-8 text-black mr-2" /> */}
                 <img src="nlogo.png" alt="" className="w-14" />
                 <span className="font-bold text-xl  text-black">
-                𝓦𝓮𝓫 𝓢𝓬𝓻𝓪𝓹𝓮𝓻
+                  𝓦𝓮𝓫 𝓢𝓬𝓻𝓪𝓹𝓮𝓻
                 </span>
               </>
             ) : (
@@ -89,9 +89,18 @@ export const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <MobileNavLink to="/" icon={<Home className="h-5 w-5 mr-1" />}>
-              Home
-            </MobileNavLink>
+            {isLoggedIn ? (
+              <MobileNavLink
+                to="/home"
+                icon={<Home className="h-5 w-5 mr-1" />}
+              >
+                Home
+              </MobileNavLink>
+            ) : (
+              <MobileNavLink to="/" icon={<Home className="h-5 w-5 mr-1" />}>
+                Home
+              </MobileNavLink>
+            )}
 
             {isLoggedIn ? (
               <button
@@ -102,10 +111,7 @@ export const Navbar = () => {
                 Logout
               </button>
             ) : (
-              <MobileNavLink
-                to="/"
-                icon={<LogIn className="h-5 w-5 mr-1" />}
-              >
+              <MobileNavLink to="/" icon={<LogIn className="h-5 w-5 mr-1" />}>
                 Login
               </MobileNavLink>
             )}
