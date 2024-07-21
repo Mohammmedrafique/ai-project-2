@@ -28,9 +28,10 @@ export const Navbar = () => {
           <div className="flex items-center">
             {isLoggedIn ? (
               <>
-                <Star className="h-8 w-8 text-black mr-2" />
-                <span className="font-bold text-xl text-black">
-                  Ai Text Summarizer
+                {/* <Star className="h-8 w-8 text-black mr-2" /> */}
+                <img src="nlogo.png" alt="" className="w-14" />
+                <span className="font-bold text-xl  text-black">
+                𝓦𝓮𝓫 𝓢𝓬𝓻𝓪𝓹𝓮𝓻
                 </span>
               </>
             ) : (
