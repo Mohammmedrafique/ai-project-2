@@ -38,7 +38,7 @@ export const Register = () => {
 
       if (response.ok) {
         toast.success("Registration successfully");
-        navigate("/login");
+        navigate("/");
       } else {
         const errorData = await response.json();
         toast.error(`Registration failed: ${errorData.message}`);
@@ -136,7 +136,7 @@ export const Register = () => {
             <p>
               Already have an account?{" "}
               <Link
-                to="/login"
+                to="/"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 Log in here
