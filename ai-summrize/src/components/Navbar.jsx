@@ -179,19 +179,19 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             {isLoggedIn ? (
-              <>
+              <div className="flex items-center hover:none">
                 <img src="nlogo.png" alt="" className="w-14" />
-                <span className="font-bold text-xl text-black">
+                <span className="font-bold text-xl text-black ">
                   𝓦𝓮𝓫 𝓢𝓬𝓻𝓪𝓹𝓮𝓻
                 </span>
-              </>
+              </div>
             ) : (
               <NavLink to="/" onClick={closeMenu}>
-                <div className="flex items-center">
-                <img src="nlogo.png" alt="" className="w-14" />
-                <span className="font-bold text-xl text-black">
-                  𝓦𝓮𝓫 𝓢𝓬𝓻𝓪𝓹𝓮𝓻
-                </span>
+                <div className="flex items-center hover:none">
+                  <img src="nlogo.png" alt="" className="w-14" />
+                  <span className="font-bold text-xl text-black">
+                    𝓦𝓮𝓫 𝓢𝓬𝓻𝓪𝓹𝓮𝓻
+                  </span>
                 </div>
               </NavLink>
             )}
@@ -209,7 +209,7 @@ export const Navbar = () => {
               {isLoggedIn ? (
                 <button
                   onClick={handleLogout}
-                  className="text-black hover:bg-blue-700 hover:text-black px-3 py-2 rounded-md text-sm font-medium flex items-center transition duration-150 ease-in-out"
+                  className="text-black hover:bg-green-700 hover:text-black px-3 py-2 rounded-md text-sm font-medium flex items-center transition duration-150 ease-in-out"
                 >
                   <LogOut className="h-5 w-5 mr-1" />
                   Logout
@@ -228,7 +228,7 @@ export const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-black hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-black hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -264,7 +264,7 @@ export const Navbar = () => {
             {isLoggedIn ? (
               <button
                 onClick={handleLogout}
-                className="text-black hover:bg-blue-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium w-full text-left flex items-center"
+                className="text-black hover:bg-green-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium w-full text-left flex items-center"
               >
                 <LogOut className="h-5 w-5 mr-1" />
                 Logout
@@ -288,7 +288,7 @@ export const Navbar = () => {
 const NavLink = ({ to, children, icon, onClick }) => (
   <Link
     to={to}
-    className="text-black hover:bg-blue-700 hover:text-black px-3 py-2 rounded-md text-sm font-medium flex items-center transition duration-150 ease-in-out"
+    className="text-black hover:animate-pulse hover:text-black px-3 py-2 rounded-md text-sm font-medium flex items-center transition duration-150 ease-in-out"
     onClick={onClick}
   >
     {icon}
@@ -299,7 +299,7 @@ const NavLink = ({ to, children, icon, onClick }) => (
 const MobileNavLink = ({ to, children, icon, onClick }) => (
   <Link
     to={to}
-    className="text-black hover:bg-blue-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium flex items-center"
+    className="text-black hover:animate-pulse hover:text-black block px-3 py-2 rounded-md text-base font-medium flex items-center"
     onClick={onClick}
   >
     {icon}
