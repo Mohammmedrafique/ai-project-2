@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Home, LogIn, LogOut, Menu, X, Star, UserCircle } from "lucide-react";
+import { Home, LogIn, LogOut, Menu, X, Star} from "lucide-react";
 import { toast } from "react-toastify";
 
 export const Navbar = () => {
@@ -11,7 +11,7 @@ export const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userid");
     localStorage.removeItem("username");
-    navigate("/login");
+    navigate("/");
     toast.success("Logout successfully");
   };
 
@@ -22,7 +22,7 @@ export const Navbar = () => {
   };
   const username = localStorage.getItem("username");
   return (
-    <nav className="bg-[#FFFFFF] shadow-md">
+    <nav className="bg-[#FFFFFF] shadow-md border-b border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -35,7 +35,7 @@ export const Navbar = () => {
               </>
             ) : (
               <NavLink
-                to="/login"
+                to="/"
                 icon={<Star className="h-8 w-8 text-black mr-2" />}
               >
                 <span className="font-bold text-xl text-black">
@@ -48,7 +48,8 @@ export const Navbar = () => {
             <div className="ml-10 flex items-center space-x-4">
               {isLoggedIn && (
                 <>
-                  <UserCircle className="h-8 w-8 text-black" />
+                  {/* <UserCircle className="h-8 w-8 text-black" /> */}
+                  <img src="logomen.png" alt="" className="w-8" />
                   <span className="font-bold text-xl text-black">
                     {username}
                   </span>
@@ -63,7 +64,7 @@ export const Navbar = () => {
                   Logout
                 </button>
               ) : (
-                <NavLink to="/login" icon={<LogIn className="h-5 w-5" />}>
+                <NavLink to="/" icon={<LogIn className="h-5 w-5" />}>
                   Login
                 </NavLink>
               )}

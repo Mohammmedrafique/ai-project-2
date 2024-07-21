@@ -6,8 +6,8 @@ import TextSummarizer from "../TextSummarizer";
 const MainRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<TextSummarizer />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/home" element={<TextSummarizer />} />
+      <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
     </Routes>
   );

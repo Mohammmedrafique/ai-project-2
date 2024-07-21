@@ -41,7 +41,7 @@ export const Login = () => {
           localStorage.setItem("userid", data.user_id);
           localStorage.setItem("username", data.username);
           toast.success("Registration successfully");
-          navigate("/");
+          navigate("/home");
         } else {
           toast.error("Token not found in response.");
         }
