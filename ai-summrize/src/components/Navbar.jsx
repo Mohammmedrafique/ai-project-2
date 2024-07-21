@@ -103,7 +103,7 @@ export const Navbar = () => {
               </button>
             ) : (
               <MobileNavLink
-                to="/login"
+                to="/"
                 icon={<LogIn className="h-5 w-5 mr-1" />}
               >
                 Login
