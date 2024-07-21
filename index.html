@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+        }
+        #summary {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Summarizer</h1>
+    <form id="summarize-form">
+        <textarea id="input-text" placeholder="Enter your text here"></textarea>
+        <button type="submit">Summarize</button>
+    </form>
+    <div id="summary"></div>
+
+    <script>
+        const API_KEY = 'AIzaSyDsVpRRJKi1Bz0_-zyat4vIYyA5NwPt7iU';
+        const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+
+        document.getElementById('summarize-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const inputText = document.getElementById('input-text').value;
+            const summaryDiv = document.getElementById('summary');
+            
+            summaryDiv.innerHTML = 'Summarizing...';
+
+            try {
+                const response = await axios.post(`${API_URL}?key=${API_KEY}`, {
+                    contents: [{
+                        parts: [{
+                            text: `Summarize the following text:\n\n${inputText}`
+                        }]
+                    }]
+                });
+
+                const summary = response.data.candidates[0].content.parts[0].text;
+                summaryDiv.innerHTML = `<h2>Summary:</h2><p>${summary}</p>`;
+            } catch (error) {
+                console.error('Error:', error);
+                summaryDiv.innerHTML = 'An error occurred while summarizing the text.';
+            }
+        });
+    </script>
+</body>
+</html>
