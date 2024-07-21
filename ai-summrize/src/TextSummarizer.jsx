@@ -31,9 +31,12 @@ const QuillBotTextSummarizer = () => {
   const fetchHistory = async () => {
     try {
       const userId = localStorage.getItem("userid");
-      const response = await axios.get("http://localhost:5002/api/history", {
-        params: { userId },
-      });
+      const response = await axios.get(
+        "https://ai-project-2-s7je.onrender.com/api/history",
+        {
+          params: { userId },
+        }
+      );
       setHistory(response.data);
     } catch (error) {
       console.error("Error fetching history:", error);
@@ -49,7 +52,7 @@ const QuillBotTextSummarizer = () => {
       const userId = localStorage.getItem("userid");
       if (inputType === "text") {
         response = await axios.post(
-          "http://localhost:5002/api/summarize-text",
+          "https://ai-project-2-s7je.onrender.com/api/summarize-text",
           { text: inputText, userId, summaryLength, mode }
         );
       } else {
@@ -59,7 +62,7 @@ const QuillBotTextSummarizer = () => {
         formData.append("summaryLength", summaryLength);
         formData.append("mode", mode);
         response = await axios.post(
-          "http://localhost:5002/api/summarize-pdf",
+          "https://ai-project-2-s7je.onrender.com/api/summarize-pdf",
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },
@@ -107,7 +110,7 @@ const QuillBotTextSummarizer = () => {
     try {
       const userId = localStorage.getItem("userid");
       const response = await axios.get(
-        `http://localhost:5002/api/history/${id}`,
+        `https://ai-project-2-s7je.onrender.com/api/history/${id}`,
         { params: { userId } }
       );
       setInputType("text");

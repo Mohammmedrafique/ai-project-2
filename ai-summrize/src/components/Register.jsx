@@ -26,7 +26,7 @@ export const Register = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:5002/api/signup",
+        "https://ai-project-2-s7je.onrender.com/api/signup",
         {
           method: "POST",
           headers: {
