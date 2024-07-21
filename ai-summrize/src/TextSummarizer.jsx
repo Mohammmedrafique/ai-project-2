@@ -13,7 +13,7 @@ import {
   X,
 } from "lucide-react";
 
-const QuillBotTextSummarizer = () => {
+const TextSummarizer = () => {
   const [summaryLength, setSummaryLength] = useState(50);
   const [mode, setMode] = useState("Paragraph");
   const [inputText, setInputText] = useState("");
@@ -93,8 +93,20 @@ const QuillBotTextSummarizer = () => {
   };
 
   const handleDownload = () => {
+    // const element = document.createElement("a");
+    // const file = new Blob([outputText], { type: "text/plain" });
+    // element.href = URL.createObjectURL(file);
+    // element.download = "summary.txt";
+    // document.body.appendChild(element);
+    // element.click();
     const element = document.createElement("a");
-    const file = new Blob([outputText], { type: "text/plain" });
+
+    // Check if outputText exists and is a string
+    const fileContent =
+      outputText && typeof outputText === "string" ? outputText : "";
+
+    const file = new Blob([fileContent], { type: "text/plain" });
+
     element.href = URL.createObjectURL(file);
     element.download = "summary.txt";
     document.body.appendChild(element);
@@ -304,7 +316,7 @@ const QuillBotTextSummarizer = () => {
                 <span>{outputText.split(" ").length} words</span>
                 <div className="space-x-2">
                   <button
-                    className="text-blue-600 hover:text-blue-800"
+                    className="text-blue-600 hover:text-red-800"
                     onClick={handleCopy}
                   >
                     <Copy className="inline-block w-5 h-5" />
@@ -331,4 +343,4 @@ const QuillBotTextSummarizer = () => {
   );
 };
 
-export default QuillBotTextSummarizer;
+export default TextSummarizer;
