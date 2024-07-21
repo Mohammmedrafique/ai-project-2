@@ -175,8 +175,8 @@ const QuillBotTextSummarizer = () => {
                 onClick={() => handleInputTypeChange("text")}
                 className={`flex-1 flex items-center justify-center px-4 py-2 rounded transition-all duration-300 ${
                   inputType === "text"
-                    ? "bg-[#E5E7EB] text-black shadow-lg"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-200"
                 }`}
               >
                 <Type className="mr-2" size={20} />
@@ -186,8 +186,8 @@ const QuillBotTextSummarizer = () => {
                 onClick={() => handleInputTypeChange("pdf")}
                 className={`flex-1 flex items-center justify-center px-4 py-2 rounded transition-all duration-300 ${
                   inputType === "pdf"
-                    ? "bg-[#E5E7EB] text-black shadow-lg"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-200"
                 }`}
               >
                 <FileText className="mr-2" size={20} />
