@@ -186,14 +186,13 @@ export const Navbar = () => {
                 </span>
               </>
             ) : (
-              <NavLink
-                to="/"
-                icon={<Star className="h-8 w-8 text-black mr-2" />}
-                onClick={closeMenu}
-              >
+              <NavLink to="/" onClick={closeMenu}>
+                <div className="flex items-center">
+                <img src="nlogo.png" alt="" className="w-14" />
                 <span className="font-bold text-xl text-black">
-                  Ai Text Summarizer
+                  𝓦𝓮𝓫 𝓢𝓬𝓻𝓪𝓹𝓮𝓻
                 </span>
+                </div>
               </NavLink>
             )}
           </div>
@@ -216,7 +215,11 @@ export const Navbar = () => {
                   Logout
                 </button>
               ) : (
-                <NavLink to="/" icon={<LogIn className="h-5 w-5" />} onClick={closeMenu}>
+                <NavLink
+                  to="/"
+                  icon={<LogIn className="h-5 w-5" />}
+                  onClick={closeMenu}
+                >
                   Login
                 </NavLink>
               )}
@@ -249,7 +252,11 @@ export const Navbar = () => {
                 Home
               </MobileNavLink>
             ) : (
-              <MobileNavLink to="/" icon={<Home className="h-5 w-5 mr-1" />} onClick={closeMenu}>
+              <MobileNavLink
+                to="/"
+                icon={<Home className="h-5 w-5 mr-1" />}
+                onClick={closeMenu}
+              >
                 Home
               </MobileNavLink>
             )}
@@ -263,7 +270,11 @@ export const Navbar = () => {
                 Logout
               </button>
             ) : (
-              <MobileNavLink to="/" icon={<LogIn className="h-5 w-5 mr-1" />} onClick={closeMenu}>
+              <MobileNavLink
+                to="/"
+                icon={<LogIn className="h-5 w-5 mr-1" />}
+                onClick={closeMenu}
+              >
                 Login
               </MobileNavLink>
             )}
